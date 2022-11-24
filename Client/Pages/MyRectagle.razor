@@ -1,0 +1,69 @@
+﻿@page "/MyRectagle"
+@using MyRectagle1.Shared.Models.OOP
+<h3>MyRectagle Calculations</h3>
+<p>@message1</p>
+<p>@message2</p>
+
+First Rectagle
+<br />
+Length:
+<input type="text" @bind="Length" />
+<br />
+width:
+<input type="text" @bind="width" />
+<br />
+<div>The area of the rectangle is...@CalcWhitespace1</div>
+<div>The scope of the rectangle is...@CalcscopeRectangle1</div>
+<br />
+second Rectagle
+<br />
+Length:
+<input type="text" @bind="Length2" />
+<br />
+width:
+<input type="text" @bind="width2" />
+<div>The area of the rectangle is...@CalcWhitespace2</div>
+<div>The scope of the rectangle is...@CalcscopeRectangle2</div>
+
+<input type="button" @onclick="CalcWhitespace" value="Calc" />
+
+@code {
+
+
+	double Length = 0;
+	double width = 0;
+	double Length2 = 0;
+	double width2 = 0;
+	double CalcWhitespace1 = 0;
+	double CalcWhitespace2 = 0;
+	double CalcscopeRectangle1 = 0;
+	double CalcscopeRectangle2 = 0;
+	string message1 = "";
+	string message2 = "";
+
+	private void CalcWhitespace()
+	{
+		CalcWhitespace1 = Length * width;
+		CalcWhitespace2 = Length2 * width2;
+		CalcscopeRectangle1 = (Length + width)*2;
+		CalcscopeRectangle2 = (Length2 + width2) * 2;
+
+		if (CalcWhitespace1 > CalcWhitespace2)
+		{
+			message1 = "the first rectagle area is bigger than the second";
+		}
+		else
+			message1 = "the second rectagle area is bigger than the first";
+
+		if (CalcscopeRectangle1 > CalcscopeRectangle2)
+		{
+			message2 = "the first rectagle scope is bigger than the second";
+
+		}
+		else
+			message2 = "the second rectagle scope is bigger than the first";
+	}
+
+
+
+}
