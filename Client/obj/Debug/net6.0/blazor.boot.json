@@ -196,15 +196,15 @@
       "mscorlib.dll": "sha256-SboUbkX8s5RVQGtnN5Q67MBZW0I\/P3aeEMENJq8gv8M=",
       "netstandard.dll": "sha256-lZ8L5iiSghlvyt2ie2YdBYAtJbVa4mvpvBX3W9ihjLc=",
       "System.Private.CoreLib.dll": "sha256-jECkJy2Sjpl59QEL3nO3p8nwKGXvnJpXaKQF\/+MTw04=",
-      "MyRectagle1.Shared.dll": "sha256-WufsUedNr5CYekKA073P+qIYcFRfVRyIRzHtFCIKIic=",
-      "MyRectagle1.Client.dll": "sha256-tgDwn0INCKl1oJVw1dhTKjWCyCaoFJemaZCyi9IB+qw="
+      "MyRectagle1.Shared.dll": "sha256-UTU4R7WuoCPMNBbsxSTi1qJbkhEyfJ3ofZkJiLWjzMM=",
+      "MyRectagle1.Client.dll": "sha256-HfJXWMjeAzDrdcvPgFAben4QXLtxzSuCWwxq7rffuK8="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "MyRectagle1.Shared.pdb": "sha256-1hhR+zuunc7z\/3xT7qYAe3nt2nUSA8FHxbnjFvaElBw=",
-      "MyRectagle1.Client.pdb": "sha256-9zF3eQgVx01XkB4ISnQNOhyUir+ZdE8UoQgmir0lsC4="
+      "MyRectagle1.Shared.pdb": "sha256-DE+we\/7DTtABpIfsGlk2Z5YOicyAzwCTFS08RJUvMAU=",
+      "MyRectagle1.Client.pdb": "sha256-899o1MMoQC2IlOe446C06xKqtvN5gXIPlZ8Kr+WRfj4="
     },
     "runtime": {
       "dotnet.6.0.10.5ubnnom53y.js": "sha256-KtM3Wrooexmrt5NmqvZfWoDPtNIe6wZqLopR6ToqUPg=",

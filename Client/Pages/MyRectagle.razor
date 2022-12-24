@@ -1,69 +1,86 @@
 ﻿@page "/MyRectagle"
 @using MyRectagle1.Shared.Models.OOP
-<h3>MyRectagle Calculations</h3>
-<p>@message1</p>
-<p>@message2</p>
+<h2>Rectangles</h2>
 
-First Rectagle
+<h3>First Rectangle:</h3>
+<span>Height: </span>
+<input type="number" @bind="FirstRect.RectHeight" />
 <br />
-Length:
-<input type="text" @bind="Length" />
+<span>Width: </span>
+<input type="number" @bind="FirstRect.RectWidth" />
 <br />
-width:
-<input type="text" @bind="width" />
+<span>Color: </span>
+<input type="text" @bind="FirstRect.RectColor" />
 <br />
-<div>The area of the rectangle is...@CalcWhitespace1</div>
-<div>The scope of the rectangle is...@CalcscopeRectangle1</div>
+<hr />
+<h3>Second Rectangle:</h3>
+<span>Height: </span>
+<input type="number" @bind="SecondRect.RectHeight" />
 <br />
-second Rectagle
+<span>Width: </span>
+<input type="number" @bind="SecondRect.RectWidth" />
 <br />
-Length:
-<input type="text" @bind="Length2" />
+<span>Color: </span>
+<input type="text" @bind="SecondRect.RectColor" />
 <br />
-width:
-<input type="text" @bind="width2" />
-<div>The area of the rectangle is...@CalcWhitespace2</div>
-<div>The scope of the rectangle is...@CalcscopeRectangle2</div>
+<br />
 
-<input type="button" @onclick="CalcWhitespace" value="Calc" />
+<input type="button" value="Calc" @onclick="CalcRect" />
+<br />
 
-@code {
-
-
-	double Length = 0;
-	double width = 0;
-	double Length2 = 0;
-	double width2 = 0;
-	double CalcWhitespace1 = 0;
-	double CalcWhitespace2 = 0;
-	double CalcscopeRectangle1 = 0;
-	double CalcscopeRectangle2 = 0;
-	string message1 = "";
-	string message2 = "";
-
-	private void CalcWhitespace()
-	{
-		CalcWhitespace1 = Length * width;
-		CalcWhitespace2 = Length2 * width2;
-		CalcscopeRectangle1 = (Length + width)*2;
-		CalcscopeRectangle2 = (Length2 + width2) * 2;
-
-		if (CalcWhitespace1 > CalcWhitespace2)
-		{
-			message1 = "the first rectagle area is bigger than the second";
-		}
-		else
-			message1 = "the second rectagle area is bigger than the first";
-
-		if (CalcscopeRectangle1 > CalcscopeRectangle2)
-		{
-			message2 = "the first rectagle scope is bigger than the second";
-
-		}
-		else
-			message2 = "the second rectagle scope is bigger than the first";
-	}
-
-
+@if (showText == true)
+    <p style="color:@bigRectArea">
+        the @bigRectArea rectangle area is bigger than the @smallRectArea rectangle
+    </p>
+    <p style="color:@bigRectPerimeter">
+        the @bigRectPerimeter rectangle perimeter is bigger than the @smallRectPerimeter rectangle
+    </p>
 
 }
+
+@code {
+    MyRectangle FirstRect = new MyRectangle();
+    MyRectangle SecondRect = new MyRectangle();
+
+    string bigRectArea = "";
+    string smallRectArea = "";
+    string bigRectPerimeter = "";
+    string smallRectPerimeter = "";
+
+    bool showText = false;
+
+    void CalcRect()
+    {
+        double firstRectArea = FirstRect.CalcArea();
+        double secondRectArea = SecondRect.CalcArea();
+
+        double firstRectPerimeter = FirstRect.CalcPerimeter();
+        double secondRectPerimeter = SecondRect.CalcPerimeter();
+
+        if (firstRectArea > secondRectArea)
+        {
+            bigRectArea = FirstRect.RectColor.ToString();
+            smallRectArea = SecondRect.RectColor.ToString();
+        }
+        else
+        {
+            smallRectArea = FirstRect.RectColor.ToString();
+            bigRectArea = SecondRect.RectColor.ToString();
+        }
+
+        if (firstRectPerimeter > secondRectPerimeter)
+        {
+            bigRectPerimeter = FirstRect.RectColor.ToString();
+            smallRectPerimeter = SecondRect.RectColor.ToString();
+        }
+        else
+        {
+            smallRectPerimeter = FirstRect.RectColor.ToString();
+            bigRectPerimeter = SecondRect.RectColor.ToString();
+        }
+
+        showText = true;
+    }
+
+}
+

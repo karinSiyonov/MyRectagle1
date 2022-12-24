@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace MyRectagle1.Shared.Models.OOP
 {
-	public class MyRectagle
-	{
-        public string color { get; set; }
-        public double Length { get; set; }
-        public double width { get; set; }
+    public class MyRectangle
+    {
+        public double RectHeight { get; set; }
+        public double RectWidth { get; set; }
+        public string RectColor { get; set; }
 
-        public double CalcWhitespace()
+        public double CalcArea()
         {
-            return Length * width;
+            return RectHeight * RectWidth;
+        }
+        public double CalcPerimeter()
+        {
+            return (RectWidth + RectHeight) * 2;
         }
 
-        public double perimeterRectangle()
-        {
-            return (width * 2) + (Length * 2);
-        }
 
     }
 }
