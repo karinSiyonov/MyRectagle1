@@ -1,0 +1,49 @@
+﻿@page "/CrudLecturers"
+@using MyRectagle1.Shared.Lecturers
+@inject HttpClient Http
+<h1>Lecturers Interface:</h1>
+
+<p>      Full Name:     <input type="text" @bind=lecturer.FullName />  </p>
+<br />
+<p>      Email:     <input type="text" @bind=lecturer.Email />  </p>
+<br />
+<p>      Study Field:     <input type="text" @bind=lecturer.StudyField />  </p>
+<br />
+<input type="button" value="Insert Lecturer" @onclick="createLecturer" />
+
+@if (lecturers != null)
+{
+	<ul>
+		@foreach (LecturerNamesID lect in lecturers)
+		{
+			<li>@(lect.ID.ToString() + " : " + lect.FullName)</li>
+		}
+	</ul>
+}
+
+@code {
+
+
+	List<LecturerNamesID> lecturers;
+	LecturerToSend lecturer = new LecturerToSend();
+
+	protected override async Task OnInitializedAsync()
+	{
+		var allResponse = await Http.GetAsync("api/lecturers/All");
+		if (allResponse.IsSuccessStatusCode == true)
+		{
+			lecturers = allResponse.Content.ReadFromJsonAsync<List<LecturerNamesID>>().Result;
+		}
+	}
+
+	async Task createLecturer()
+	{
+		var insertResponse = await Http.PostAsJsonAsync("api/lecturers", lecturer);
+		if (insertResponse.IsSuccessStatusCode == true)
+		{
+			LecturerNamesID newLecturer = insertResponse.Content.ReadFromJsonAsync<LecturerNamesID>().Result;
+			lecturers.Add(newLecturer);
+		}
+	}
+
+}

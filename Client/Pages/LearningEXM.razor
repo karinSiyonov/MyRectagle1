@@ -1,0 +1,51 @@
+﻿@page "/LearningEXMPage"
+<h1>Learning Interface:</h1>
+@using MyRectagle1.Shared.Lecturers;
+@inject HttpClient Http
+
+<p>Full Name:<input type="text" @bind=singleLearning.FullName />  </p>
+<br />
+<p>ID:<input type="text" @bind=singleLearning.ID /> </p>
+<br />
+<input type="button" value="Insert Learn" @onclick="createLearning" />
+
+
+@if (singleLearning != null)
+{
+	<p> Full name: @singleLearning.FullName</p>
+	<p> IsExcellence: @singleLearning.IsExcellence.ToString()</p>
+	<p>ID: @singleLearning.ID</p>
+	<p>Grade: @singleLearning.Grade</p>
+
+}
+
+@code {
+	List<LecturerNamesID> Studends;
+
+	string emailToCheck = "";
+	Learning singleLearning;
+
+	async Task getDetails()
+	{
+		var getDetailsResponse = await Http.GetAsync("api/Learning/" + emailToCheck);
+
+		if (getDetailsResponse.IsSuccessStatusCode == true)
+		{
+			singleLearning = getDetailsResponse.Content.ReadFromJsonAsync<Learning>().Result;
+		}
+	}
+
+		Learning Learn = new Learning();
+
+		async Task createLearning()
+		{
+			var insertResponse = await Http.PostAsJsonAsync("api/Learning", Learn);
+			if (insertResponse.IsSuccessStatusCode == true)
+			{
+				LecturerNamesID newLecturer = insertResponse.Content.ReadFromJsonAsync<LecturerNamesID>().Result;
+				Studends.Add(newLecturer);
+			}
+
+
+}
+}

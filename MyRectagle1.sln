@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRectagle1.Server", "Server\MyRectagle1.Server.csproj", "{572F00B0-E035-4552-AA10-D036463BA0D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyRectagle1.Server", "Server\MyRectagle1.Server.csproj", "{572F00B0-E035-4552-AA10-D036463BA0D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRectagle1.Client", "Client\MyRectagle1.Client.csproj", "{B6C8827C-C6D9-47B1-A447-AB07A4E8678F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyRectagle1.Client", "Client\MyRectagle1.Client.csproj", "{B6C8827C-C6D9-47B1-A447-AB07A4E8678F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRectagle1.Shared", "Shared\MyRectagle1.Shared.csproj", "{4D3A05AA-8BE7-4674-9A52-05C332319A4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyRectagle1.Shared", "Shared\MyRectagle1.Shared.csproj", "{4D3A05AA-8BE7-4674-9A52-05C332319A4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

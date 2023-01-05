@@ -1,0 +1,24 @@
+﻿@page "/LecturersPage"
+@using MyRectagle1.Shared.Lecturers;
+@inject HttpClient Http
+
+<input type="button" value= "get Lecturer" @onclick="getDetails" />
+<input type="text" @bind="emailToSend" />
+
+@if (singleLecturer != null) {
+	<p> Full name: @singleLecturer.FullName</p>
+	<p> Experience: @singleLecturer.Experience.ToString()</p>
+	<p>StudyField: @singleLecturer.StudyField</p>
+}
+
+@code{
+	LecturerExpStudy singleLecturer;
+	string emailToSend = "";
+	async Task getDetails() {
+	var getDetailsResponse = await Http.GetAsync("api/Lecturers/"+emailToSend);
+
+	if (getDetailsResponse.IsSuccessStatusCode == true) {
+			singleLecturer = getDetailsResponse.Content.ReadFromJsonAsync<LecturerExpStudy>().Result;
+	}
+	}	
+}
